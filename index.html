@@ -3,37 +3,196 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Graziela Costa Store</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- usando a largura real da tela do aparelho -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graziela Costa Store | Produtos artesanais</title>
+    <meta name="description" content="Velas, difusores, sprays e escalda pés artesanais, feitos à mão com cera 100% vegetal.">
+
+    <!-- Fontes: Cormorant Garamond (títulos) e Open Sans (textos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
-    <header><h1>Graziela Costa Store</h1></header>
 
-    <main>
-        <section>
-            <h2>Velas</h2>
-        </section>
-        <section>
-            <h2>Difusores</h2>
-        </section>
-        <section>
-            <h2>Escalda Pés</h2>
-        </section>
-        <section>
-            <h2>Sprays</h2>
-        </section>
-        <section>
-            <h2>Diversos</h2>
-        </section>
-        <section>
-            <h2>Presentes</h2>
-        </section>
-    </main>
+<!-- Início do cabeçalho -->
+<header class="topo">
+    <div class="topo__conteudo">
+        <a href="#inicio" class="marca">
+            <h1 class="marca__nome">
+                <img src="img/LogoGrazielaCostaStore.png" alt="Graziela Costa Store" class="marca__logo">
+            </h1>
+        </a>
 
-    <footer>Contato</footer>
+        <nav class="menu" aria-label="Menu principal">
+            <a href="#inicio">Início</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <div class="topo__acoes">
+            <button type="button" class="icone-botao" aria-label="Pesquisar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"/>
+                    <path d="m20 20-3.5-3.5"/>
+                </svg>
+            </button>
+            <button type="button" class="icone-botao" aria-label="Carrinho">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 7h12l1 13H5L6 7z"/>
+                    <path d="M9 7a3 3 0 0 1 6 0"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+<!-- Fim do cabeçalho -->
+
+<main>
+
+    <!-- Início do banner principal -->
+    <section class="hero" id="inicio">
+        <div class="container hero__conteudo">
+            <div class="hero__texto">
+                <p class="sobretitulo">Feito à mão, com carinho</p>
+                <h2>Produtos artesanais que acolhem o seu dia</h2>
+                <p>Velas, sprays, escalda pés e muito mais. Feitos com cera 100% vegetal, para trazer
+                    tranquilidade, equilíbrio e bem-estar para a sua rotina.</p>
+                <a href="#produtos" class="botao">Conheça nossos produtos →</a>
+            </div>
+            <!-- Quando tiver a foto real, coloque em img/ e use: style="background-image: url('../img/banner.jpg')" -->
+            <div class="hero__imagem" role="img" aria-label="Vela aromática artesanal"></div>
+        </div>
+    </section>
+    <!-- Fim do banner principal -->
+
+    <!-- Início dos diferenciais -->
+    <section class="diferenciais">
+        <div class="container diferenciais__lista">
+            <div class="diferencial">
+                <span class="diferencial__icone" aria-hidden="true">❀</span>
+                <h3>Feito à mão</h3>
+                <p>Cada produto é produzido com muito cuidado e dedicação.</p>
+            </div>
+            <div class="diferencial">
+                <span class="diferencial__icone" aria-hidden="true">❦</span>
+                <h3>Cera 100% vegetal</h3>
+                <p>Ingrediente natural, escolhido a dedo.</p>
+            </div>
+            <div class="diferencial">
+                <span class="diferencial__icone" aria-hidden="true">♡</span>
+                <h3>Personalizado</h3>
+                <p>Aromas e embalagens para lembranças e eventos.</p>
+            </div>
+            <div class="diferencial">
+                <span class="diferencial__icone" aria-hidden="true">✉</span>
+                <h3>Atendimento direto</h3>
+                <p>Faça seu pedido pelo WhatsApp, de forma simples.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Fim dos diferenciais -->
+
+    <!-- Início dos produtos -->
+    <section class="produtos" id="produtos">
+        <div class="container">
+            <h2 class="titulo-secao">Nossos produtos</h2>
+            <p class="sobretitulo sobretitulo--centro">Escolha o que mais combina com você</p>
+
+            <div class="grade-produtos">
+                <!-- Cada card é um grupo. Para trocar a cor por uma foto, mude a classe da imagem (veja o CSS). -->
+                <a href="#" class="card card--rosado">
+                    <div class="card__imagem card__imagem--velas"></div>
+                    <span class="card__nome">Velas</span>
+                </a>
+                <a href="#" class="card card--verde">
+                    <div class="card__imagem card__imagem--difusores"></div>
+                    <span class="card__nome">Difusores</span>
+                </a>
+                <a href="#" class="card card--rosado">
+                    <div class="card__imagem card__imagem--escalda"></div>
+                    <span class="card__nome">Escalda pés</span>
+                </a>
+                <a href="#" class="card card--verde">
+                    <div class="card__imagem card__imagem--sprays"></div>
+                    <span class="card__nome">Sprays</span>
+                </a>
+                <a href="#" class="card card--rosado">
+                    <div class="card__imagem card__imagem--diversos"></div>
+                    <span class="card__nome">Diversos</span>
+                </a>
+                <a href="#" class="card card--verde">
+                    <div class="card__imagem card__imagem--presentes"></div>
+                    <span class="card__nome">Presentes</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Fim dos produtos -->
+
+    <!-- Início do sobre a loja -->
+    <section class="sobre" id="sobre">
+        <div class="sobre__imagem" role="img" aria-label="Vela sobre uma manta"></div>
+        <div class="sobre__texto">
+            <h2>Sobre a loja</h2>
+            <p>A Graziela Costa Store nasceu do desejo de levar mais aconchego e bem-estar para o dia a dia,
+                através de produtos artesanais feitos com amor, qualidade e propósito.</p>
+            <a href="#contato" class="botao">Saiba mais →</a>
+        </div>
+    </section>
+    <!-- Fim do sobre a loja -->
+
+    <!-- Início da faixa de experiências -->
+    <section class="experiencias">
+        <div class="container">
+            <h2>Mais que produtos, são experiências</h2>
+            <ul class="experiencias__lista">
+                <li>Relaxamento</li>
+                <li>Aromas que acolhem</li>
+                <li>Equilíbrio</li>
+                <li>Autocuidado</li>
+            </ul>
+        </div>
+    </section>
+    <!-- Fim da faixa de experiências -->
+
+    <!-- Início da chamada final -->
+    <section class="chamada" id="contato">
+        <div class="container">
+            <h2>Cuide de você</h2>
+            <p class="sobretitulo sobretitulo--centro">É sempre uma boa escolha</p>
+            <!-- Troque 55SEUNUMERO pelo número da sua mãe, com DDD. Ex.: 5551999999999 -->
+            <a href="https://wa.me/55SEUNUMERO" class="botao" target="_blank" rel="noopener">Chamar no WhatsApp →</a>
+        </div>
+    </section>
+    <!-- Fim da chamada final -->
+
+</main>
+
+<!-- Início do rodapé -->
+<footer class="rodape">
+    <div class="container rodape__conteudo">
+        <p class="rodape__marca">Graziela Costa Store</p>
+        <p class="rodape__texto">Feito à mão, com carinho.</p>
+        <div class="rodape__redes">
+            <!-- Troque # pelo link do Instagram da loja -->
+            <a href="#" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+    </div>
+</footer>
+<!-- Fim do rodapé -->
+
+<!-- Botão flutuante do WhatsApp (acompanha a rolagem) -->
+<a href="https://wa.me/55SEUNUMERO" class="whatsapp-flutuante" target="_blank" rel="noopener"
+   aria-label="Falar no WhatsApp">WhatsApp</a>
+
 </body>
 
+</html>
 
 
