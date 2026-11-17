@@ -42,7 +42,7 @@
                 </svg>
             </button>
             <button type="button" class="icone-botao" aria-label="Carrinho">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M6 7h12l1 13H5L6 7z"/>
                     <path d="M9 7a3 3 0 0 1 6 0"/>
                 </svg>
@@ -102,36 +102,11 @@
         <div class="container">
             <h2 class="titulo-secao">Nossos produtos</h2>
             <p class="sobretitulo sobretitulo--centro">Escolha o que mais combina com você</p>
-
-            <div class="grade-produtos">
-                <!-- Cada card é um grupo. Para trocar a cor por uma foto, mude a classe da imagem (veja o CSS). -->
-                <a href="#" class="card card--rosado">
-                    <div class="card__imagem card__imagem--velas"></div>
-                    <span class="card__nome">Velas</span>
-                </a>
-                <a href="#" class="card card--verde">
-                    <div class="card__imagem card__imagem--difusores"></div>
-                    <span class="card__nome">Difusores</span>
-                </a>
-                <a href="#" class="card card--rosado">
-                    <div class="card__imagem card__imagem--escalda"></div>
-                    <span class="card__nome">Escalda pés</span>
-                </a>
-                <a href="#" class="card card--verde">
-                    <div class="card__imagem card__imagem--sprays"></div>
-                    <span class="card__nome">Sprays</span>
-                </a>
-                <a href="#" class="card card--rosado">
-                    <div class="card__imagem card__imagem--diversos"></div>
-                    <span class="card__nome">Diversos</span>
-                </a>
-                <a href="#" class="card card--verde">
-                    <div class="card__imagem card__imagem--presentes"></div>
-                    <span class="card__nome">Presentes</span>
-                </a>
+            <div class="grade-produtos" id="lista-produtos">
             </div>
         </div>
     </section>
+
     <!-- Fim dos produtos -->
 
     <!-- Início do sobre a loja -->
@@ -191,6 +166,7 @@
 <a href="https://wa.me/55SEUNUMERO" class="whatsapp-flutuante" target="_blank" rel="noopener"
    aria-label="Falar no WhatsApp">WhatsApp</a>
 
+<script src="js/script.js"></script>
 </body>
 
 </html>
