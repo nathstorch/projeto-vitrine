@@ -2,12 +2,9 @@
 
 const formulario = document.getElementById('form-produto');
 
-formulario.addEventListener('submit', async (evento) => {
-  console.log('Alguém clicou!');
-
-
-//formulario.add.EventListener('submit', async (evento) => { //vamos usar await (esperar o servidor responder). Sem o async, o await dá erro.
-//    evento.preventDefault();           // função sem nome pq só vai ser usado aqui
+formulario.addEventListener('submit', async (evento) => { //vamos usar await (esperar o servidor responder). Sem o async, o await dá erro.
+    evento.preventDefault(); // função sem nome pq só vai ser usado aqui
+    console.log('Alguém clicou!');
 
     const dados = {
         nome: document.getElementById('nome').value,
