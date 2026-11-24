@@ -5,7 +5,7 @@ app.use(express.json()); // ajudano servidor a entender dados enviados pela pág
 app.use(express.static('public')); //para a página, procure os arquivos dentro da pasta "public"
 
 //lista produtos está por enquanto na memória e guarda os itens
-let produtos = [
+let produtos = [ //let permite que a lista sofra alterações depois
     {id: 1, nome: 'Produto de teste', preco: 49.9}
 ];
 let proximoId = 2;
@@ -15,8 +15,10 @@ app.get('/produtos', (req, res) => { //"regra para quando alguém pede para ver 
     res.json(produtos);
 });
 
-app.listen(3000, ()=> { //escutando pedidos na porta 3000
-    console.log('Site funcionando em http://localhost:3000'); //"abre a loja e fica atendendo"
+app.delete('/produtos/:id', (req, res) =>{ //busca o produto pelo id que vai ser substituido pelo numero que for digitado para ser apagado
+    const id = Number(req.params.id); //"Number" transforma o id em um numero de verdade
+    produtos = produtos.filter(produto => produto.id !== id); //Filter serve como uma peneira para todos os ids que forem diferentes do id que vai ser apagado
+    res.status(204).end(); // servidor mostra que deu tudo certo
 });
 
 app.post ('/produtos', (req, res) => {
@@ -24,10 +26,9 @@ app.post ('/produtos', (req, res) => {
     const produto = { id: proximoId++, nome, preco: Number(preco), descricao }; // dá um número único ao produto, necessario para editar e excluir depois // "Number(preco) transforma o texto em um numero de verdade podendo fazer contas
     produtos.push(produto); // Aqui o produto novo entra na lista produtos que criamos no começo do arquivo. É aqui que ele realmente fica guardado (por enquanto, só na memória).
     res.status(201).json(produto); // 201 codigo de sucesso // .json(produto) devolve a ficha pronta
+})
 
-}
-
-
-
-)
+app.listen(3000, ()=> { //escutando pedidos na porta 3000
+    console.log('Site funcionando em http://localhost:3000'); //"abre a loja e fica atendendo"
+});
 
