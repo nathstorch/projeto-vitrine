@@ -5,10 +5,8 @@ app.use(express.json()); // ajudano servidor a entender dados enviados pela pág
 app.use(express.static('public')); //para a página, procure os arquivos dentro da pasta "public"
 
 //lista produtos está por enquanto na memória e guarda os itens
-let produtos = [ //let permite que a lista sofra alterações depois
-    {id: 1, nome: 'Produto de teste', preco: 49.9}
-];
-let proximoId = 2;
+let produtos = []; //let permite que a lista sofra alterações depois
+let proximoId = 1;
 
 // devolve os produtos quando alguem pede a lista
 app.get('/produtos', (req, res) => { //"regra para quando alguém pede para ver algo" // req (request -> dados que o form mandou) e res (response -> o que vai ser devolvido para a pag)
