@@ -19,6 +19,23 @@ app.delete('/produtos/:id', (req, res) =>{ //busca o produto pelo id que vai ser
     res.status(204).end(); // servidor mostra que deu tudo certo
 });
 
+app.put('/produtos/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const {nome, preco, descricao } = req.body;
+
+    const produto = produtos.find(p => p.id === id); // "===" serve para comparação, true or false
+    if (!produto) {
+    return res.status(404).json({ erro: 'Produto não encontrado'});
+    }
+
+    produto.nome = nome;
+    produto.preco = Number(preco);
+    produto.descricao = descricao;
+
+    res.json(produto);
+
+    });
+
 app.post ('/produtos', (req, res) => {
     const { nome, preco, descricao } = req.body; // crie caixinhas chamadas nome, preco e descricao e coloque nelas o que está nas etiquetas nome, preco e descricao da caixa req.body
     const produto = { id: proximoId++, nome, preco: Number(preco), descricao }; // dá um número único ao produto, necessario para editar e excluir depois // "Number(preco) transforma o texto em um numero de verdade podendo fazer contas
