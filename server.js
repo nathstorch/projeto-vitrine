@@ -41,7 +41,7 @@ app.post ('/produtos', (req, res) => {
     const produto = { id: proximoId++, nome, preco: Number(preco), descricao }; // dá um número único ao produto, necessario para editar e excluir depois // "Number(preco) transforma o texto em um numero de verdade podendo fazer contas
     produtos.push(produto); // Aqui o produto novo entra na lista produtos que criamos no começo do arquivo. É aqui que ele realmente fica guardado (por enquanto, só na memória).
     res.status(201).json(produto); // 201 codigo de sucesso // .json(produto) devolve a ficha pronta
-})
+});
 
 app.listen(3000, ()=> { //escutando pedidos na porta 3000
     console.log('Site funcionando em http://localhost:3000'); //"abre a loja e fica atendendo"

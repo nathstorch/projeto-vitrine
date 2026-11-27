@@ -2,9 +2,10 @@
 
 const formulario = document.getElementById('form-produto');
 
+let idEmEdicao = null;
+
 formulario.addEventListener('submit', async (evento) => { //vamos usar await (esperar o servidor responder). Sem o async, o await dá erro.
     evento.preventDefault(); // função sem nome pq só vai ser usado aqui
-    console.log('Alguém clicou!');
 
     const dados = {
         nome: document.getElementById('nome').value,
@@ -12,15 +13,28 @@ formulario.addEventListener('submit', async (evento) => { //vamos usar await (es
         descricao: document.getElementById('descricao').value
     };
 
-    await fetch('/produtos', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json' },
-        body: JSON.stringify(dados)
-    });
+    if (idEmEdicao === null) {
+        // cadastro novo
+        await fetch('/produtos/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(dados)
+        });
+    } else {
+        // edição de um produto que já existe
+        await fetch('/produtos/' + idEmEdicao, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(dados)
+        });
+        idEmEdicao = null;
+        document.getElementById('botao-salvar').textContent = 'Adicionar';
+    }
 
-    formulario.reset(); // o reset limpa os campos para que um novo produto possa ser add
+    formulario.reset();
     await carregarLista();
-    alert('Produto adicionado');
+    alert('Produto salvo');
+
 });
 
 async function carregarLista() {
@@ -35,6 +49,7 @@ async function carregarLista() {
         <p>
         ${produto.nome} - R$ ${produto.preco.toFixed(2)}
         <button type="button" onclick="excluirProduto(${produto.id})">Excluir</button>
+        <button type="button" onclick="editarProduto(${produto.id})">Editar</button>
         </p>
         `;
     });
@@ -46,6 +61,19 @@ async function excluirProduto(id){
 
     await fetch('/produtos/' + id, {method: 'DELETE'}); // '/produtos/' + id == '/produtos/id'
     await carregarLista();
+}
+
+async function editarProduto(id) {
+    const resposta = await fetch('/produtos');
+    const produtos = await resposta.json();
+    const produto = produtos.find(p => p.id === id);
+
+    document.getElementById('nome').value = produto.nome;
+    document.getElementById('preco').value = produto.preco;
+    document.getElementById('descricao').value = produto.descricao || '';
+
+    idEmEdicao = id;
+    document.getElementById('botao-salvar').textContent = 'Salvar alterações';
 }
 
 carregarLista();
