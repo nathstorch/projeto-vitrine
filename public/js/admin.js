@@ -44,13 +44,23 @@ async function carregarLista() {
     const lista = document.getElementById('lista-admin');
     lista.innerHTML = '';
 
+    if (produtos.length === 0) {
+        lista.innerHTML = '<p class="vazio">Nenhum produto cadastrado ainda.</p>';
+        return;
+    }
+
     produtos.forEach(produto => {
         lista.innerHTML += `
-        <p>
-        ${produto.nome} - R$ ${produto.preco.toFixed(2)}
-        <button type="button" onclick="excluirProduto(${produto.id})">Excluir</button>
-        <button type="button" onclick="editarProduto(${produto.id})">Editar</button>
-        </p>
+            <div class="item">
+                <div class="item__info">
+                    <strong>${produto.nome}</strong>
+                    <span>R$ ${produto.preco.toFixed(2)}</span>
+                </div>
+                <div class="item__botoes">
+                    <button type="button" class="botao botao--editar" onclick="editarProduto(${produto.id})">Editar</button>
+                    <button type="button" class="botao botao--excluir" onclick="excluirProduto(${produto.id})">Excluir</button>
+                </div>
+            </div>
         `;
     });
 }

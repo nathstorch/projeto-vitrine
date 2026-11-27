@@ -5,20 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel</title>
+    <link rel="stylesheet" href="css/admin.css">
 </head>
+
 <body>
-    <h1>Adicionar Body Splash</h1>
+<main class="painel">
+    <h1>Painel dos Produtos</h1>
 
-    <form id="form-produto">
-        <p><input type="text" id="nome" placeholder="Nome (ex.: Baunilha e Côco)" required></p>
-        <p><input type="number" id="preco" placeholder="Preço" step="0.01" required></p>
-        <p><textarea id="descricao" placeholder="Descrição curta"></textarea></p>
-        <button type="submit" id="botao-salvar">Adicionar</button>
-    </form>
+    <section class="caixa">
+        <h2>Dados do Body Splash</h2>
 
-    <h2>Produtos Cadastrados</h2>
-    <div id="lista-admin"></div>
+        <form id="form-produto">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Ex.: Creamy Vanilla" required>
 
-    <script src="js/admin.js"></script>
+            <label for="preco">Preço</label>
+            <input type="number" id="preco" placeholder="Ex.: 59,90" step="0.01" required>
+
+            <label for="nome">Descrição curta</label>
+            <textarea id="descricao" placeholder="Ex.: Abaunilhada e aconchegante" required></textarea>
+
+            <button type="submit" id="botao-salvar" class="botao botao--principal">Adicionar</button>
+        </form>
+    </section>
+    <section class="caixa">
+        <h2> Produtos cadastrados</h2>
+        <div id="lista-admin"></div>
+    </section>
+</main>
+
+<script src="js/admin.js"></script>
 </body>
 </html>
